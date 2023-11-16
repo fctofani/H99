@@ -1,4 +1,4 @@
-module PartOne (myLast, mySecLast, findElem, myLen) where
+module PartOne (myLast, mySecLast, findElem, myLen, myReverse, isPalindrome) where
 
 -- Q1) Get the last element of a list
 myLast :: [a] -> a
@@ -26,3 +26,19 @@ myLen' (_ : xs) n = myLen' xs (n + 1)
 
 myLen :: [a] -> Integer
 myLen xs = myLen' xs 0
+
+-- Q5) reverse a list
+myReverse' :: [a] -> [a] -> [a]
+myReverse' [] acc = acc
+myReverse' (x : xs) acc = myReverse' xs (x : acc)
+
+myReverse :: [a] -> [a]
+myReverse xs = myReverse' xs []
+
+-- Q6) find if list is a palindrome
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome [] = True
+isPalindrome [_] = True
+isPalindrome xs
+  | head xs == last xs = isPalindrome $ init $ drop 1 xs
+  | otherwise = False
