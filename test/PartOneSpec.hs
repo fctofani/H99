@@ -32,3 +32,7 @@ spec = do
       shouldBe (isPalindrome "madamimadam") True
     it "exercise 06 test C" $ do
       shouldBe (isPalindrome [1, 2, 4, 8, 16, 8, 4, 2, 1]) True
+    it "exercise 07 test A" $ do
+      shouldBe (flatten (Elem 5)) [5]
+    it "exercise 07 test B" $ do
+      shouldBe (flatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]])) [1, 2, 3, 4, 5]

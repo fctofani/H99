@@ -1,4 +1,4 @@
-module PartOne (myLast, mySecLast, findElem, myLen, myReverse, isPalindrome) where
+module PartOne where
 
 -- Q1) Get the last element of a list
 myLast :: [a] -> a
@@ -20,20 +20,20 @@ findElem (x : _) 1 = x
 findElem (_ : xs) n = findElem xs (n - 1)
 
 -- Q4) find the length of a list
-myLen' :: [a] -> Integer -> Integer
-myLen' [] n = n
-myLen' (_ : xs) n = myLen' xs (n + 1)
-
 myLen :: [a] -> Integer
 myLen xs = myLen' xs 0
+  where
+    myLen' :: [a] -> Integer -> Integer
+    myLen' [] n = n
+    myLen' (_ : ys) n = myLen' ys (n + 1)
 
 -- Q5) reverse a list
-myReverse' :: [a] -> [a] -> [a]
-myReverse' [] acc = acc
-myReverse' (x : xs) acc = myReverse' xs (x : acc)
-
 myReverse :: [a] -> [a]
 myReverse xs = myReverse' xs []
+  where
+    myReverse' :: [a] -> [a] -> [a]
+    myReverse' [] acc = acc
+    myReverse' (y : ys) acc = myReverse' ys (y : acc)
 
 -- Q6) find if list is a palindrome
 isPalindrome :: (Eq a) => [a] -> Bool
@@ -42,3 +42,12 @@ isPalindrome [_] = True
 isPalindrome xs
   | head xs == last xs = isPalindrome $ init $ drop 1 xs
   | otherwise = False
+
+-- Q7) flatten a list
+data NestedList a = Elem a | List [NestedList a]
+
+flatten :: NestedList a -> [a]
+flatten (List []) = []
+flatten (Elem x) = [x]
+flatten (List (Elem x : xs)) = x : flatten (List xs)
+flatten (List ((List xs) : ys)) = flatten (List xs) ++ flatten (List ys)
