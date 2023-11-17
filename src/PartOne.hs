@@ -51,3 +51,11 @@ flatten (List []) = []
 flatten (Elem x) = [x]
 flatten (List (Elem x : xs)) = x : flatten (List xs)
 flatten (List ((List xs) : ys)) = flatten (List xs) ++ flatten (List ys)
+
+-- Q8) compress a list removing repeated elements
+compress :: (Eq a) => [a] -> [a]
+compress [] = []
+compress [x] = [x]
+compress (x : xs)
+  | x == head xs = compress xs
+  | otherwise = x : compress xs

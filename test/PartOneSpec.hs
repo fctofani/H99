@@ -36,3 +36,5 @@ spec = do
       shouldBe (flatten (Elem 5)) [5]
     it "exercise 07 test B" $ do
       shouldBe (flatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]])) [1, 2, 3, 4, 5]
+    it "exercise 08 test A" $ do
+      shouldBe (compress "aaaabccaadeeee") "abcade"
