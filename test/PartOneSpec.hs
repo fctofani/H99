@@ -38,3 +38,5 @@ spec = do
       shouldBe (flatten (List [Elem 1, List [Elem 2, List [Elem 3, Elem 4], Elem 5]])) [1, 2, 3, 4, 5]
     it "exercise 08 test A" $ do
       shouldBe (compress "aaaabccaadeeee") "abcade"
+    it "exercise 09 test A" $ do
+      shouldBe (pack ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']) ["aaaa", "b", "cc", "aa", "d", "eeee"]

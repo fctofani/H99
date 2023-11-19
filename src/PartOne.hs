@@ -59,3 +59,15 @@ compress [x] = [x]
 compress (x : xs)
   | x == head xs = compress xs
   | otherwise = x : compress xs
+
+-- Q9) pack consecutive equal elements in sublists
+pack :: (Eq a) => [a] -> [[a]]
+pack xs = pack' xs [] []
+  where
+    pack' :: (Eq a) => [a] -> [a] -> [[a]] -> [[a]]
+    pack' [] _ acc' = acc'
+    pack' [y] [] acc' = reverse $ [y] : acc'
+    pack' [y] acc acc' = reverse $ (y : acc) : acc'
+    pack' (y : ys) acc acc'
+      | y == head ys = pack' ys (y : acc) acc'
+      | otherwise = pack' ys [] ((y : acc) : acc')
