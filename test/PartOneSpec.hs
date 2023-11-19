@@ -40,3 +40,5 @@ spec = do
       shouldBe (compress "aaaabccaadeeee") "abcade"
     it "exercise 09 test A" $ do
       shouldBe (pack ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']) ["aaaa", "b", "cc", "aa", "d", "eeee"]
+    it "exercise 10 test A" $ do
+      shouldBe (encode "aaaabccaadeeee") [(4, 'a'), (1, 'b'), (2, 'c'), (2, 'a'), (1, 'd'), (4, 'e')]

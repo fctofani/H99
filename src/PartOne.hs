@@ -71,3 +71,14 @@ pack xs = pack' xs [] []
     pack' (y : ys) acc acc'
       | y == head ys = pack' ys (y : acc) acc'
       | otherwise = pack' ys [] ((y : acc) : acc')
+
+-- Q10) lenght encoding of a list
+encode :: (Eq a) => [a] -> [(Integer, a)]
+encode xs = encode' xs 0 []
+  where
+    encode' :: (Eq a) => [a] -> Integer -> [(Integer, a)] -> [(Integer, a)]
+    encode' [] _ acc = acc
+    encode' [y] n acc = reverse ((n + 1, y) : acc)
+    encode' (y : ys) n acc
+      | y == head ys = encode' ys (n + 1) acc
+      | otherwise = encode' ys 0 ((n + 1, y) : acc)
