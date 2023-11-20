@@ -15,6 +15,7 @@ encodeModified xs = encodedModified' xs 0 []
       | n == 0 = encodedModified' ys 0 (Single y : acc)
       | otherwise = encodedModified' ys 0 (Multiple (n + 1) y : acc)
 
+-- Q12) decode an encoded list
 decodeModified :: (Eq a) => [EncodeTuple a] -> [a]
 decodeModified [] = []
 decodeModified ((Single x) : xs) = x : decodeModified xs
