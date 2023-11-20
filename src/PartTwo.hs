@@ -21,3 +21,20 @@ decodeModified [] = []
 decodeModified ((Single x) : xs) = x : decodeModified xs
 decodeModified ((Multiple 1 x) : xs) = x : decodeModified xs
 decodeModified ((Multiple n x) : xs) = x : decodeModified (Multiple (n - 1) x : xs)
+
+-- Q14) duplicate list elements
+dupli :: [a] -> [a]
+dupli [] = []
+dupli (x : xs) = x : x : dupli xs
+
+-- Q15) replicate list elements n times
+repli :: [a] -> Int -> [a]
+repli [] _ = []
+repli _ 0 = []
+repli xs q = repli' xs q 0
+  where
+    repli' :: [a] -> Int -> Int -> [a]
+    repli' [] _ _ = []
+    repli' (y : ys) n m
+      | n > m = y : repli' (y : ys) n (m + 1)
+      | otherwise = repli' ys n 0
