@@ -14,3 +14,9 @@ encodeModified xs = encodedModified' xs 0 []
       | y == head ys = encodedModified' ys (n + 1) acc
       | n == 0 = encodedModified' ys 0 (Single y : acc)
       | otherwise = encodedModified' ys 0 (Multiple (n + 1) y : acc)
+
+decodeModified :: (Eq a) => [EncodeTuple a] -> [a]
+decodeModified [] = []
+decodeModified ((Single x) : xs) = x : decodeModified xs
+decodeModified ((Multiple 1 x) : xs) = x : decodeModified xs
+decodeModified ((Multiple n x) : xs) = x : decodeModified (Multiple (n - 1) x : xs)
