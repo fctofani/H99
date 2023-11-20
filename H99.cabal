@@ -27,6 +27,7 @@ library
   exposed-modules:
       Lib
       PartOne
+      PartTwo
   other-modules:
       Paths_H99
   autogen-modules:
@@ -57,6 +58,7 @@ test-suite H99-test
   main-is: Spec.hs
   other-modules:
       PartOneSpec
+      PartTwoSpec
       Paths_H99
   autogen-modules:
       Paths_H99
