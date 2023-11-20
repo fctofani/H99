@@ -14,3 +14,5 @@ spec = do
       shouldBe (dupli [1, 2, 3]) [1, 1, 2, 2, 3, 3]
     it "exercise 15 test A" $ do
       shouldBe (repli "abc" 3) "aaabbbccc"
+    it "exercise 16 test A" $ do
+      shouldBe (dropEvery "abcdefghik" 3) "abdeghk"

@@ -38,3 +38,13 @@ repli xs q = repli' xs q 0
     repli' (y : ys) n m
       | n > m = y : repli' (y : ys) n (m + 1)
       | otherwise = repli' ys n 0
+
+-- Q16) drop every nth element from a list
+dropEvery :: [a] -> Int -> [a]
+dropEvery xs q = dropEvery' xs q 1
+  where
+    dropEvery' :: [a] -> Int -> Int -> [a]
+    dropEvery' [] _ _ = []
+    dropEvery' (y : ys) n m
+      | n > m = y : dropEvery' ys n (m + 1)
+      | otherwise = dropEvery' ys n 1
