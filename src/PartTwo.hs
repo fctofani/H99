@@ -6,6 +6,7 @@ data EncodeTuple a = Single a | Multiple Integer a deriving (Eq, Show)
 encodeModified :: (Eq a) => [a] -> [EncodeTuple a]
 encodeModified xs = encodedModified' xs 0 []
   where
+    encodedModified' :: (Eq a) => [a] -> Integer -> [EncodeTuple a] -> [EncodeTuple a]
     encodedModified' [] _ acc = acc
     encodedModified' [y] 0 acc = reverse (Single y : acc)
     encodedModified' [y] n acc = reverse (Multiple (n + 1) y : acc)
