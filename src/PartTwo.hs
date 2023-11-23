@@ -48,3 +48,12 @@ dropEvery xs q = dropEvery' xs q 1
     dropEvery' (y : ys) n m
       | n > m = y : dropEvery' ys n (m + 1)
       | otherwise = dropEvery' ys n 1
+
+-- Q17) split a list in two parts based on the length of the first part
+split :: [a] -> Int -> ([a], [a])
+split xs q = split' xs q []
+  where
+    split' :: [a] -> Int -> [a] -> ([a], [a])
+    split' [] _ acc = (reverse acc, [])
+    split' ys 0 acc = (reverse acc, ys)
+    split' (y : ys) n acc = split' ys (n - 1) (y : acc)

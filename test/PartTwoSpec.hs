@@ -16,3 +16,5 @@ spec = do
       shouldBe (repli "abc" 3) "aaabbbccc"
     it "exercise 16 test A" $ do
       shouldBe (dropEvery "abcdefghik" 3) "abdeghk"
+    it "exercise 17 test A" $ do
+      shouldBe (split "abcdefghik" 3) ("abc", "defghik")
