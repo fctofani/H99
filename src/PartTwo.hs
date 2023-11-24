@@ -57,3 +57,10 @@ split xs q = split' xs q []
     split' [] _ acc = (reverse acc, [])
     split' ys 0 acc = (reverse acc, ys)
     split' (y : ys) n acc = split' ys (n - 1) (y : acc)
+
+-- Q18) extract a slice from a list
+slice :: [a] -> Int -> Int -> [a]
+slice [] _ _ = []
+slice _ _ 0 = []
+slice (x : xs) 1 n = x : slice xs 1 (n - 1)
+slice (_ : xs) m n = slice xs (m - 1) (n - 1)
