@@ -1,4 +1,4 @@
-module PartTwo where
+module Part02 where
 
 -- Q11) modified encoding with non-dupes being simply added to the list
 data EncodeTuple a = Single a | Multiple Integer a deriving (Eq, Show)

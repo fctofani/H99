@@ -26,8 +26,9 @@ source-repository head
 library
   exposed-modules:
       Lib
-      PartOne
-      PartTwo
+      Part01
+      Part02
+      Part03
   other-modules:
       Paths_H99
   autogen-modules:
@@ -57,8 +58,9 @@ test-suite H99-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      PartOneSpec
-      PartTwoSpec
+      Part01Spec
+      Part02Spec
+      Part03Spec
       Paths_H99
   autogen-modules:
       Paths_H99

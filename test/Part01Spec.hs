@@ -1,6 +1,6 @@
-module PartOneSpec where
+module Part01Spec where
 
-import PartOne
+import Part01
 import Test.Hspec
 
 spec :: Spec

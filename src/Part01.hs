@@ -1,4 +1,4 @@
-module PartOne where
+module Part01 where
 
 -- Q1) Get the last element of a list
 myLast :: [a] -> a
