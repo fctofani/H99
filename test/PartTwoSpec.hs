@@ -24,3 +24,5 @@ spec = do
       shouldBe (rotate ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] 3) "defghabc"
     it "exercise 19 test B" $ do
       shouldBe (rotate ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] (-2)) "ghabcdef"
+    it "exercise 20 test A" $ do
+      shouldBe (removeAt 2 "abcd") ('b', "acd")

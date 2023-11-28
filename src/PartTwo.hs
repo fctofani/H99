@@ -76,3 +76,13 @@ rotate xs q = rotate' xs q []
     rotate' (y : ys) n acc
       | n > 1 = rotate' ys (n - 1) (y : acc)
       | otherwise = rotate' (init (y : ys)) (n + 1) (last (y : ys) : acc)
+
+-- Q20) remove the k'th element of a list
+removeAt :: Int -> [a] -> (a, [a])
+removeAt q xs = removeAt' xs q []
+  where
+    removeAt' :: [a] -> Int -> [a] -> (a, [a])
+    removeAt' [] _ _ = error "empty list"
+    removeAt' _ 0 _ = error "can't remove zero elements"
+    removeAt' (y : ys) 1 acc = (y, reverse acc ++ ys)
+    removeAt' (y : ys) n acc = removeAt' ys (n - 1) (y : acc)
