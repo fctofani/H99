@@ -20,8 +20,7 @@ spec = do
       shouldBe (split "abcdefghik" 3) ("abc", "defghik")
     it "exercise 18 test A" $ do
       shouldBe (slice ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'] 3 7) "cdefg"
-
--- it "exercise 19 test A" $ do
---   shouldBe (rotate ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] 3) "defghabc"
--- it "exercise 19 test B" $ do
---   shouldBe (rotate ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] (-2)) "ghabcdef"
+    it "exercise 19 test A" $ do
+      shouldBe (rotate ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] 3) "defghabc"
+    it "exercise 19 test B" $ do
+      shouldBe (rotate ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] (-2)) "ghabcdef"

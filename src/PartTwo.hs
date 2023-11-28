@@ -64,3 +64,15 @@ slice [] _ _ = []
 slice _ _ 0 = []
 slice (x : xs) 1 n = x : slice xs 1 (n - 1)
 slice (_ : xs) m n = slice xs (m - 1) (n - 1)
+
+-- Q19) rotate a list
+rotate :: [a] -> Int -> [a]
+rotate xs q = rotate' xs q []
+  where
+    rotate' :: [a] -> Int -> [a] -> [a]
+    rotate' [] _ acc = acc
+    rotate' ys 0 acc = acc ++ ys
+    rotate' (y : ys) 1 acc = ys ++ reverse (y : acc)
+    rotate' (y : ys) n acc
+      | n > 1 = rotate' ys (n - 1) (y : acc)
+      | otherwise = rotate' (init (y : ys)) (n + 1) (last (y : ys) : acc)
