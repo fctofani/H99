@@ -7,3 +7,7 @@ insertAt x xs q = insertAt' x xs q []
     insertAt' z [] _ _ = [z]
     insertAt' z ys 1 acc = reverse (z : acc) ++ ys
     insertAt' z (y : ys) n acc = insertAt' z ys (n - 1) (y : acc)
+
+-- Q22) list with all integer between a given range (inclusive)
+myRange :: Int -> Int -> [Int]
+myRange x y = [x .. y]
